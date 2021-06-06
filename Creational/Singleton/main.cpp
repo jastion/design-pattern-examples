@@ -1,5 +1,6 @@
 #include <iostream>
 
+using namespace std;
 class GlobalClass
 {
     int m_value;
@@ -27,6 +28,11 @@ class GlobalClass
             }
             return s_instance;
         }
+
+        static void resetInstance() {
+            delete s_instance;
+            s_instance = nullptr;
+        }
 };
 // Allocating and initializing GlobalClass's static data member.  
 // The pointer is being allocated - not the object inself.
@@ -46,5 +52,7 @@ int main() {
     cout << "main: global_ptr is " << GlobalClass::instance()->get_value() << endl;
     foo();
     bar();
+    GlobalClass::resetInstance();
+    cout << "main: global_ptr is " << GlobalClass::instance()->get_value() << endl;
     return 0;
 }
