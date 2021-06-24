@@ -1,6 +1,3 @@
-source:
-https://sourcemaking.com/design_patterns/singleton
-https://www.gofpatterns.com/design-patterns/module3/singleton-real-world-examples.php
 
 ---
 ## Summary
@@ -21,7 +18,7 @@ Encapsulated "just-in-time initialization" or "initialization on first use".
 ---
 ## Problem
 
-Application needs one, and only one, instance of an object. Additionally, lazy initialization and global access are necessary.
+Application needs one, and only one, instance of an object. Additionally, lazy initialization and global access are necessary. The most common reason for this is to control access to some shared resource—for example, a database or a file. 
 
 ---
 ## Discussion
@@ -52,3 +49,12 @@ Deleting a Singleton class/instance is a non-trivial design problem.
 - Loggers
 - Global configurations
 - Hardware Access
+
+## Notes
+
+This behavior is impossible to implement with a regular constructor since a constructor call must always return a new object by design.
+
+## Source
+https://sourcemaking.com/design_patterns/factory_method
+https://refactoring.guru/design-patterns/singleton
+https://www.gofpatterns.com/design-patterns/module3/singleton-real-world-examples.php
